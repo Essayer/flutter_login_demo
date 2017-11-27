@@ -44,8 +44,8 @@ class LoginPage extends StatelessWidget {
       child: new Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          buildInputField(context, "Enter your email", Icons.email),
-          buildInputField(context, "Enter your password", Icons.lock),
+          buildInputField(context, "Enter your email", Icons.email,false),
+          buildInputField(context, "Enter your password", Icons.lock,true),
           new Container(
               margin: const EdgeInsets.only(top: 26.0),
               child: new RaisedButton(
@@ -63,7 +63,7 @@ class LoginPage extends StatelessWidget {
 /**
  * create InputField
  */
-Widget buildInputField(BuildContext context, String hint, IconData iconData) {
+Widget buildInputField(BuildContext context, String hint, IconData iconData,bool isPassword) {
   return new Container(
       decoration: new BoxDecoration(
           border: new Border.all(color: Colors.grey)
@@ -80,6 +80,7 @@ Widget buildInputField(BuildContext context, String hint, IconData iconData) {
                 .textTheme
                 .body1,
             decoration: new InputDecoration.collapsed(hintText: hint),
+            obscureText: isPassword,
           )),
         ],
       )
